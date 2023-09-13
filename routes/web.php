@@ -21,7 +21,7 @@ Route::get('/', [CategoryController::class, 'catView'])->name('index.categorias'
 Route::get('/categorias', [CategoryController::class, 'catView'])->name('index.categorias');
 Route::post('/categorias', [CategoryController::class, 'createCat'])->name('create.categorias');
 Route::delete('/categorias', [CategoryController::class, 'deleteCat'])->name('delete.categorias');
-Route::get('/categorias/create', [QuoteController::class, 'createCatView'])->name('create.index.categorias')->middleware('auth');
+Route::get('/categorias/create', [CategoryController::class, 'createCatView'])->name('create.index.categorias')->middleware('auth');
 
 
 
