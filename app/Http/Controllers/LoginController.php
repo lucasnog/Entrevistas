@@ -16,13 +16,18 @@ class LoginController extends Controller
 
     public function createUser(Request $request)
     {
+        $existingUser = User::where('email', $request->email)->first();
 
+        if ($existingUser) {
+            return redirect()->route('index.user')->with('error', 'Email já utilizado.');
+        };
         User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => $request->password,
         ]);
-
+        $user = User::where('email', $request->email)->first();
+        Auth::login($user);
         return redirect()->route('index.categorias')->with('success', 'Conta criada com sucesso!');
     }
 
