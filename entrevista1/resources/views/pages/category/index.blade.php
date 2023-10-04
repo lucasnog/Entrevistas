@@ -86,7 +86,12 @@
 
 
         </table>
+
+
+<p>{{$findQuote[1]->category->name}}</p>
+
     </div>
 </div>
+
 </body>
 </html>
